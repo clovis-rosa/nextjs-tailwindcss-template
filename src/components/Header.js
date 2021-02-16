@@ -8,7 +8,14 @@ export default function Header() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  console.log(click, `============> HANDLECLICK`);
+  const menuLinks = [
+    { href: "/product", title: "Product" },
+    { href: "/features", title: "Features" },
+    { href: "/", title: "Marketplace" },
+    { href: "/", title: "Company" },
+  ];
+
+  // console.log(click, `============> HANDLECLICK`);
 
   return (
     <>
@@ -64,26 +71,17 @@ export default function Header() {
                 </div>
               </div>
               <div className="hidden space-x-8 md:flex md:ml-10">
-                <Link href="/product">
-                  <a className="text-base font-medium text-white hover:text-gray-300">
-                    Product
-                  </a>
-                </Link>
-                <Link href="/features">
-                  <a className="text-base font-medium text-white hover:text-gray-300">
-                    Features
-                  </a>
-                </Link>
-                <Link href="/marketplace">
-                  <a className="text-base font-medium text-white hover:text-gray-300">
-                    Marketplace
-                  </a>
-                </Link>
-                <Link href="/company">
-                  <a className="text-base font-medium text-white hover:text-gray-300">
-                    Company
-                  </a>
-                </Link>
+                {menuLinks.map((link) => (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    // onClick={onToggleNav}
+                  >
+                    <a className="text-base font-medium text-white hover:text-gray-300">
+                      {link.title}
+                    </a>
+                  </Link>
+                ))}
               </div>
             </div>
             <div className="hidden md:flex md:items-center md:space-x-6">
@@ -164,41 +162,20 @@ export default function Header() {
               aria-labelledby="main-menu"
             >
               <div className="px-2 space-y-1" role="none">
-                <Link href="/">
-                  <a
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                    role="menuitem"
+                {menuLinks.map((link) => (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    // onClick={onToggleNav}
                   >
-                    Product
-                  </a>
-                </Link>
-
-                <Link href="/">
-                  <a
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                    role="menuitem"
-                  >
-                    Features
-                  </a>
-                </Link>
-
-                <Link href="/">
-                  <a
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                    role="menuitem"
-                  >
-                    Marketplace
-                  </a>
-                </Link>
-
-                <Link href="/">
-                  <a
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                    role="menuitem"
-                  >
-                    Company
-                  </a>
-                </Link>
+                    <a
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                      role="menuitem"
+                    >
+                      {link.title}
+                    </a>
+                  </Link>
+                ))}
               </div>
               <div role="none" className="mt-6 px-5">
                 <Link href="/">
@@ -210,9 +187,9 @@ export default function Header() {
               <div role="none" className="mt-6 px-5">
                 <p className="text-center text-base font-medium text-gray-500">
                   Existing customer?{" "}
-                  <a href="#" className="text-gray-900 hover:underline">
-                    Login
-                  </a>
+                  <Link href="/">
+                    <a className="text-gray-900 hover:underline">Login</a>
+                  </Link>
                 </p>
               </div>
             </div>

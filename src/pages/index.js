@@ -1,18 +1,21 @@
 import Head from "next/head";
 import Link from "next/link";
-import Header from "../components/Header";
+import Layout from "../templates/layout";
+import { PageSeo } from "../components/SEO";
+import siteMetadata from "../data/siteMetadata.json";
 
 export default function Home() {
+  console.log(siteMetadata.title, `================> TITLE`);
+
   return (
-    <>
-      <Head>
-        <title>Home | Next.js & TailwindCSS</title>
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
+    <Layout>
+      <PageSeo
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+        url={siteMetadata.siteUrl}
+      />
 
-      <Header />
-
-      <main className="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
+      <section className="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
         <div className="text-center max-w-screen-lg xl:max-w-screen-xl mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
             Rapidly build modern websites without ever leaving your HTML.
@@ -23,7 +26,7 @@ export default function Home() {
             </a>
           </Link>
         </div>
-      </main>
-    </>
+      </section>
+    </Layout>
   );
 }
