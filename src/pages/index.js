@@ -39,7 +39,7 @@ export default function Home() {
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl leading-relaxed post-container dark:text-white mt-8 mb-8 text-gray-900 "
+            className="text-xl leading-relaxed post-container dark:text-white mt-8 mb-8 text-gray-900"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
             deleniti, quas laudantium itaque aliquam nemo nulla veniam tempora
