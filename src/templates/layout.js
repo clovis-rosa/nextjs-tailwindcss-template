@@ -1,11 +1,19 @@
 import Header from "../components/Header";
-import siteMetadata from "../data/siteMetadata";
+import { motion } from "framer-motion";
+// import { animate } from "../components/Animations";
 
-export default function Layout({ title, children }) {
+export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main className="container m-auto">{children}</main>
+      <motion.main
+        className="container m-auto"
+        exit={{ opacity: 0 }}
+        initial="initial"
+        animate="animate"
+      >
+        {children}
+      </motion.main>
     </>
   );
 }
