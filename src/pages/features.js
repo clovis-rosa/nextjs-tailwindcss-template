@@ -1,9 +1,15 @@
-import Head from "next/head";
 import Layout from "../templates/layout";
+import { PageSeo } from "../components/SEO";
+import siteMetadata from "../data/siteMetadata.json";
 
 export default function Features() {
   return (
     <Layout>
+      <PageSeo
+        title={`Features | ${siteMetadata.title}`}
+        description={`Features me - ${siteMetadata.author}`}
+        url={`${siteMetadata.siteUrl}/features`}
+      />
       <section>
         <h1>Features</h1>
         <p>

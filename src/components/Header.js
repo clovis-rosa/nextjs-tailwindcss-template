@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { menuData } from "../data/menuData";
 
 export default function Header() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const menuLinks = [
-    { href: "/product", title: "Product" },
-    { href: "/features", title: "Features" },
-    { href: "/", title: "Marketplace" },
-    { href: "/", title: "Company" },
-  ];
-
-  // console.log(click, `============> HANDLECLICK`);
 
   return (
     <>
@@ -53,17 +44,16 @@ export default function Header() {
                     <span className="sr-only">Open main menu</span>
                     {/* <!-- Heroicon name: outline/menu --> */}
                     <svg
-                      className="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
                       fill="none"
-                      viewBox="0 0 24 24"
                       stroke="currentColor"
-                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth="2"
+                        strokeWidth={2}
                         d="M4 6h16M4 12h16M4 18h16"
                       />
                     </svg>
@@ -71,7 +61,7 @@ export default function Header() {
                 </div>
               </div>
               <div className="hidden space-x-8 md:flex md:ml-10">
-                {menuLinks.map((link) => (
+                {menuData.map((link) => (
                   <Link
                     key={link.title}
                     href={link.href}
@@ -112,21 +102,27 @@ export default function Header() {
 
         <div
           className={`absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden ${
-            click ? "block" : "hidden"
+            click
+              ? "duration-150 ease-out opacity-100 scale-100"
+              : "duration-150 ease-in opacity-0 scale-95"
           }`}
         >
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
               <div>
-                <Image
-                  width={30}
-                  height={30}
-                  className="h-8 w-auto"
-                  src={
-                    "/assets/images/logos/workflow-mark-teal-500-cyan-600.svg"
-                  }
-                  alt="some image description here"
-                />
+                <Link href="/">
+                  <a>
+                    <span className="sr-only">Workflow</span>
+                    <Image
+                      width={30}
+                      height={30}
+                      src={
+                        "/assets/images/logos/workflow-mark-teal-500-cyan-600.svg"
+                      }
+                      alt="some image description here"
+                    />
+                  </a>
+                </Link>
               </div>
 
               <div className="-mr-2">
@@ -138,17 +134,16 @@ export default function Header() {
                   <span className="sr-only">Close menu</span>
                   {/* <!-- Heroicon name: outline/x --> */}
                   <svg
-                    className="h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
                     fill="none"
-                    viewBox="0 0 24 24"
                     stroke="currentColor"
-                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="2"
+                      strokeWidth={2}
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
@@ -162,7 +157,7 @@ export default function Header() {
               aria-labelledby="main-menu"
             >
               <div className="px-2 space-y-1" role="none">
-                {menuLinks.map((link) => (
+                {menuData.map((link) => (
                   <Link
                     key={link.title}
                     href={link.href}

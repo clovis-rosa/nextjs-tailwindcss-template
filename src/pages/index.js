@@ -1,16 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
 import Layout from "../templates/layout";
 import { PageSeo } from "../components/SEO";
 import siteMetadata from "../data/siteMetadata.json";
+import Link from "next/link";
 
 export default function Home() {
-  console.log(siteMetadata.title, `================> TITLE`);
-
   return (
     <Layout>
       <PageSeo
-        title={siteMetadata.title}
+        title={`Home | ${siteMetadata.title}`}
         description={siteMetadata.description}
         url={siteMetadata.siteUrl}
       />

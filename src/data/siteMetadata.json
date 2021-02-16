@@ -6,7 +6,6 @@
   "language": "en-us",
   "siteUrl": "https://clovisrosa.vercel.app",
   "siteRepo": "https://github.com/clovis-rosa/nextjs-tailwindcss-template",
-  "favicon": "/assets/images/favicon.svg",
   "image": "/assets/images/avatar.png",
   "socialBanner": "/assets/images/twitter-card.png",
   "email": "address@yoursite.com",
