@@ -36,12 +36,12 @@ export default function Header() {
                     />
                   </a>
                 </Link>
-
                 <div className="-mr-2 flex items-center md:hidden">
                   <button
                     onClick={handleClick}
                     type="button"
-                    className="bg-gray-200 dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-800 dark:text-gray-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                    // className="bg-gray-200 dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-800 dark:text-gray-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                    className="bg-gray-200 inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     id="main-menu"
                     aria-haspopup="true"
                     aria-label="Open main menu"
@@ -135,7 +135,7 @@ export default function Header() {
               <div className="-mr-2">
                 <button
                   onClick={handleClick}
-                  className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600"
+                  className="bg-gray-200 inline-flex items-center justify-center p-2 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                   aria-label="Close menu"
                   type="button"
                 >

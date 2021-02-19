@@ -1,11 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
-import { motion } from "framer-motion";
-import siteMetadata from "../data/siteMetadata.json";
-// import { animate } from "../components/Animations";
+// import { motion } from "framer-motion";
+// import siteMetadata from "../data/siteMetadata.json";
+// // import { animate } from "../components/Animations";
 
-export default function Layout({ children }) {
+export default function SiteLayout({ children }) {
   const router = useRouter();
 
   const meta = {
@@ -51,14 +51,7 @@ export default function Layout({ children }) {
         )}
       </Head>
       <Header />
-      <motion.main
-        className="container m-auto"
-        exit={{ opacity: 0 }}
-        initial="initial"
-        animate="animate"
-      >
-        {children}
-      </motion.main>
+      <main className="container m-auto">{children}</main>
     </>
   );
 }

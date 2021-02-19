@@ -1,19 +1,13 @@
 import Layout from "../templates/layout";
-import { PageSeo } from "../components/SEO";
-import siteMetadata from "../data/siteMetadata.json";
-import Link from "next/link";
+// import { PageSeo } from "../components/SEO";
+// import siteMetadata from "../data/siteMetadata.json";
+// import Link from "next/link";
 import { motion } from "framer-motion";
 import { stagger, fadeInUp } from "../components/Animations";
 
 export default function Home() {
   return (
     <Layout>
-      <PageSeo
-        title={`Home | ${siteMetadata.title}`}
-        description={siteMetadata.description}
-        url={siteMetadata.siteUrl}
-      />
-
       <motion.section
         variants={stagger}
         className="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44"
