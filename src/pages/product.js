@@ -1,14 +1,14 @@
-import React from "react";
 import Layout from "../templates/layout";
-// import { PageSeo } from "../components/SEO";
-// import siteMetadata from "../data/siteMetadata.json";
 import { stagger, fadeInUp } from "../components/Animations";
 import { motion } from "framer-motion";
 
 export default function Product() {
   return (
     <Layout>
-      <motion.section variants={stagger}>
+      <motion.section
+        variants={stagger}
+        className="md:container md:mx-auto px-4"
+      >
         <motion.h1
           variants={fadeInUp}
           className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10"

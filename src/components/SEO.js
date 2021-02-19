@@ -1,113 +1,51 @@
-import { NextSeo, ArticleJsonLd } from "next-seo";
-import siteMetadata from "../data/siteMetadata.json";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-export const SEO = {
-  title: siteMetadata.title,
-  description: siteMetadata.description,
-  openGraph: {
-    type: "website",
-    locale: siteMetadata.language,
-    url: siteMetadata.siteUrl,
-    title: siteMetadata.title,
-    description: siteMetadata.description,
-    images: [
-      {
-        url: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
-        alt: siteMetadata.title,
-        width: 1200,
-        height: 600,
-      },
-    ],
-  },
-  twitter: {
-    handle: siteMetadata.twitter,
-    site: siteMetadata.twitter,
-    cardType: "summary_large_image",
-  },
-  additionalMetaTags: [
-    {
-      name: "author",
-      content: siteMetadata.author,
-    },
-  ],
+const meta = {
+  title: "Next.js TailwindCSS Template Starter",
+  author: "Clovis Rosa",
+  headerTitle: "TailwindCSS Site",
+  description: "A site created with Next.js and Tailwind.css",
+  language: "en-us",
+  siteUrl: "https://clovisrosa.vercel.app",
+  siteRepo: "https://github.com/clovis-rosa/nextjs-tailwindcss-template",
+  image: "/assets/images/avatar.png",
+  socialBanner: "/assets/images/twitter-card.png",
+  email: "address@yoursite.com",
+  github: "https://github.com",
+  twitter: "https://twitter.com/Twitter",
+  facebook: "https://facebook.com",
+  youtube: "https://youtube.com",
+  linkedin: "https://www.linkedin.com",
+  image: "/assets/images/banner.png",
+  type: "website",
 };
 
-export const PageSeo = ({ title, description, url }) => {
-  return (
-    <NextSeo
-      title={title}
-      description={description}
-      canonical={url}
-      openGraph={{
-        url,
-        title,
-        description,
-      }}
-    />
-  );
-};
-
-export const BlogSeo = ({
-  title,
-  summary,
-  date,
-  lastmod,
-  url,
-  tags,
-  images = [],
-}) => {
-  const publishedAt = new Date(date).toISOString();
-  const modifiedAt = new Date(lastmod || date).toISOString();
-  let imagesArr =
-    images.length === 0
-      ? [siteMetadata.socialBanner]
-      : typeof images === "string"
-      ? [images]
-      : images;
-
-  const featuredImages = imagesArr.map((img) => {
-    return {
-      url: `${siteMetadata.siteUrl}${img}`,
-      alt: title,
-    };
-  });
+export default function SEO() {
+  const router = useRouter();
 
   return (
     <>
-      <NextSeo
-        title={`${title} – ${siteMetadata.title}`}
-        description={summary}
-        canonical={url}
-        openGraph={{
-          type: "article",
-          article: {
-            publishedTime: publishedAt,
-            modifiedTime: modifiedAt,
-            authors: [`${siteMetadata.siteUrl}/about`],
-            tags,
-          },
-          url,
-          title,
-          description: summary,
-          images: featuredImages,
-        }}
-        additionalMetaTags={[
-          {
-            name: "twitter:image",
-            content: featuredImages[0].url,
-          },
-        ]}
-      />
-      <ArticleJsonLd
-        authorName={siteMetadata.author}
-        dateModified={publishedAt}
-        datePublished={modifiedAt}
-        description={summary}
-        images={featuredImages}
-        publisherName={siteMetadata.author}
-        title={title}
-        url={url}
-      />
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="robots" content="follow, index" />
+        <meta content={meta.description} name={`${meta.description}`} />
+        <meta property="og:url" content={`${meta.siteUrl}${router.asPath}`} />
+        <link rel="canonical" href={`${meta.siteUrl}${router.asPath}`} />
+        <meta property="og:type" content={meta.type} />
+        <meta property="og:site_name" content={meta.author} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:image" content={meta.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rosa-clovis" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+        {meta.date && (
+          <meta property="article:published_time" content={meta.date} />
+        )}
+      </Head>
     </>
   );
-};
+}

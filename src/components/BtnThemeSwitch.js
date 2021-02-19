@@ -1,3 +1,6 @@
+// Avoid Hydration Mismatch
+// https:github.com/pacocoursey/next-themes#avoid-hydration-mismatch
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 

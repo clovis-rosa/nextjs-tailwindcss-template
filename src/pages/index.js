@@ -1,6 +1,4 @@
 import Layout from "../templates/layout";
-// import { PageSeo } from "../components/SEO";
-// import siteMetadata from "../data/siteMetadata.json";
 // import Link from "next/link";
 import { motion } from "framer-motion";
 import { stagger, fadeInUp } from "../components/Animations";
