@@ -1,7 +1,27 @@
 {
   "name": "nextjs-tailwindcss-template",
-  "version": "0.1.0",
+  "description": "Stunning good looking minimal website just using system font and great looking images.",
   "private": true,
+  "version": "0.1.0",
+  "author": "Clovis Rosa <clovis.souzarosa@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clovis-rosa/nextjs-tailwindcss-template"
+  },
+  "bugs": {
+    "url": "https://github.com/clovis-rosa/nextjs-tailwindcss-template/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "nextjs",
+    "framer-motion",
+    "tailwindcss",
+    "react",
+    "boilerplate",
+    "template",
+    "javascript"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

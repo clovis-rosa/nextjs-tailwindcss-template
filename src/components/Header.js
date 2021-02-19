@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <>
       <header className="relative">
-        <div className="pt-6 bg-white dark:bg-gray-900  transition duration-400">
+        <div className="pt-6">
           <nav
             className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
             aria-label="Global"
@@ -68,7 +68,7 @@ export default function Header() {
               <div className="hidden space-x-8 md:flex md:ml-10">
                 {menuData.map((link) => (
                   <Link key={link.title} href={link.href}>
-                    <a className="text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-100 tracking-normal px-4 py-2 rounded">
+                    <a className="text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-600 tracking-normal px-4 py-2 rounded">
                       {link.title}
                     </a>
                   </Link>

@@ -11,7 +11,7 @@ export default function Product() {
       >
         <motion.h1
           variants={fadeInUp}
-          className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10"
+          className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 dark:text-white mt-10 mb-8 sm:mt-14 sm:mb-10"
         >
           Product
         </motion.h1>
